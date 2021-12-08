@@ -1,1 +1,1 @@
-This is a troubleshooting for 
+This is a troubleshooting for https://github.com/GoogleCloudPlatform/spring-cloud-gcp/issues/774
