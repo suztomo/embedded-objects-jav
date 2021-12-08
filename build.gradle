@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.7'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("com.google.cloud:spring-cloud-gcp-starter")
+	implementation("com.google.cloud:spring-cloud-gcp-starter-data-spanner")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	testImplementation("io.projectreactor:reactor-test")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom("com.google.cloud:spring-cloud-gcp-dependencies:2.0.6")
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:2020.0.4")
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
